@@ -26,7 +26,9 @@ gulp.task('build', ['clean'], function() {
       }
     }))
     .pipe(transform('utf8', function (content, file) {
-      return template.replace('{BODY}', content);
+      return template
+        .replace('{BODY}', content)
+        .replace('{TIME}', (new Date()).toLocaleString('vi-VN'));
     }));
   const cloned = html
     .pipe(clone())
