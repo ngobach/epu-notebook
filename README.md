@@ -1,10 +1,13 @@
 # EPU-Notebook
 
+**Home page: http://epu-notebook.surge.sh/**
+
 ## Introduction
 
-EPU-Notebook provide an awesome utility for programming competition.
-(c) 2017 BachNX <mail@ngobach.com>.
+EPU-Notebook provide an awesome list of utilities for programming competition.
+Maintained by BachNX <mail@ngobach.com>, contributions are appreciated.
 
-## Download
+## Edit this book
 
-You can obtain a copy of this book in the **Releases** page of this repository. New version is automated built and deployed thank to **Travis CI**.
+The heart of this book is inside file `src/epu-notebook.md`.
+New versions are automated deployed to *surge.sh* with the helps of *TravisCI*.
