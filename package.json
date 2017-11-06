@@ -16,8 +16,9 @@
     "gulp": "^3.9.1",
     "gulp-clone": "^1.0.0",
     "gulp-markdown": "^1.2.0",
-    "gulp-markdown-pdf": "^5.0.0",
     "gulp-rename": "^1.2.2",
-    "gulp-util": "^3.0.8"
+    "gulp-transform": "^3.0.5",
+    "gulp-util": "^3.0.8",
+    "highlight.js": "^9.12.0"
   }
 }

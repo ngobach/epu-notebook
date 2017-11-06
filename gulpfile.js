@@ -1,13 +1,14 @@
 const gulp = require('gulp');
 const del = require('del');
 const fs = require('fs');
+const hightlight = require('highlight.js');
 
 const es = require('event-stream');
 const util = require('gulp-util');
 const markdown = require('gulp-markdown');
 const clone = require('gulp-clone');
-const md2pdf = require('gulp-markdown-pdf');
 const rename = require('gulp-rename');
+const transform = require('gulp-transform');
 /* Tasks */
 
 gulp.task('default', ['build']);
@@ -17,18 +18,20 @@ gulp.task('clean', function() {
 });
 
 gulp.task('build', ['clean'], function() {
-  const renderer = new markdown.marked.Renderer();
-  const style = fs.readFileSync('./src/style.css');
-  renderer.html = function(html) {
-    return '<style>' + style + '</style>' + html;
-  }
-  const src = gulp.src('./src/epu-notebook.md')
+  const template = fs.readFileSync('./src/template.html').toString('utf8');
+  const html = gulp.src('./src/epu-notebook.md')
     .pipe(markdown({
-      renderer: renderer
+      highlight: function(code, lang) {
+        return hightlight.highlight(lang || 'cpp', code).value;
+      }
+    }))
+    .pipe(transform('utf8', function (content, file) {
+      return template.replace('{BODY}', content);
     }));
-  const cloned = src
+  const cloned = html
     .pipe(clone())
     .pipe(rename('index.html'));
-  es.merge(src, cloned)
+  const css = gulp.src('./src/style.css');
+  es.merge(html, cloned, css)
     .pipe(gulp.dest('./dist'));
 });
