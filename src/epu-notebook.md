@@ -1589,3 +1589,4 @@ main() {
 - [Algorithm Gym :: Data structures](http://codeforces.com/blog/entry/15729)
 - [Algorithm Gym :: Everything About Segment Trees](http://codeforces.com/blog/entry/15890)
 - [Many algorithms and datastructs implementations](https://sites.google.com/site/indy256/)
+- [VNOI Wiki](http://vnoi.info/wiki/Home)
