@@ -259,7 +259,7 @@ main() {
 
 ## Chặt nhị phân
 
-TODO:
+TODO: TODOz
 
 ## Suffix Array
 
